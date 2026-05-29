@@ -56,8 +56,14 @@ const NOTE = {
 const MODEL = 'claude-sonnet-4-5-20250929';
 
 // ─────────────── auth detection ───────────────
-const credsPath = path.join(os.homedir(), '.claude', '.credentials.json');
-const hasSubAuth = fs.existsSync(credsPath);
+// Claude Code stores credentials in different places per OS/version.
+// Check all known locations · the SDK can pick up any of them.
+const credsPaths = [
+  path.join(os.homedir(), '.claude', '.credentials.json'),   // unix newer
+  path.join(os.homedir(), '.claude.json'),                   // legacy + Windows
+  path.join(os.homedir(), 'AppData', 'Roaming', 'Claude', 'credentials.json'), // windows alt
+];
+const hasSubAuth = credsPaths.some(p => fs.existsSync(p));
 const hasApiKey = !!process.env.ANTHROPIC_API_KEY;
 
 console.log('◊·κ=1 · CASSIE Oracle 3 · recursive subagent tree · prime 131\n');
@@ -359,23 +365,44 @@ function buildOrchestratorPrompt(state, ringReports, chordAdvice) {
     ? JSON.stringify(chordAdvice, null, 2)
     : '  (no chord this cycle · primes scattered)';
 
+  // ◊ Oracle 3 is the controller · read CURRENT live config to reason against
+  const cfg = state.currentConfig || {};
+  const curPB = cfg.priority_bias ?? 0.70;
+  const curGB = cfg.golden_bias   ?? 0.12;
+  const zones = cfg.zones || [];
+  const curW = (i, fb) => (zones[i]?.weight ?? fb);
+  const P1w = curW(0, 0.30), P2w = curW(1, 0.45), P3w = curW(2, 0.10), P4w = curW(3, 0.15);
+
   return `You are the L0 ORCHESTRATOR of CASSIE Oracle 3.
 
 You sit at the top of a recursive Claude subagent tree solving BTC puzzle 135.
 
-You are not the walker. You are the COMPOSER.
-The walker runs in the browser. Your job is to tell it where to walk.
+You are not the walker. You are the COMPOSER · and as of this cycle, you are
+also the CONTROLLER. Your bias_recommendations get applied directly to the
+walker config with a ±0.15 per-cycle clamp. Reason carefully. Small steady
+nudges beat dramatic swings — the clamp will cap you anyway.
 
 ═════════════════════════════════════════════════════════
 CASSIE STATE
 ═════════════════════════════════════════════════════════
-  Recent DP sample size:   ${state.recentDpSample?.length ?? 0}
+  Recent DP sample size:    ${state.recentDpSample?.length ?? 0}
+  Total DPs collected:      ${state.totalDPs ?? 0}
+  Total jumps:              ${state.oracleSteps?.toLocaleString?.() ?? '?'}
   Inline Oracle confidence: ${state.oracleConfidence ?? 'unknown'}
   Inline Oracle position:   ${state.oraclePosition ?? '-'} / 510510
   Priority zone hits:       P1=${state.priorityHits?.[0] ?? 0} P2=${state.priorityHits?.[1] ?? 0} P3=${state.priorityHits?.[2] ?? 0} P4=${state.priorityHits?.[3] ?? 0}
-  Focus mode:               ${state.focusMode ? 'ON (85% priority bias)' : 'OFF'}
-  Spawn coverage (golden):  ${state.spawnCoverage ?? 'unknown'}
-  Golden pairs detected:    ${state.goldenPairs ?? 0}
+  Focus mode:               ${state.focusMode ? 'ON (priority_bias >= 0.80)' : 'OFF (open aperture)'}
+
+═════════════════════════════════════════════════════════
+LIVE WALKER CONFIG  (what you are tuning)
+═════════════════════════════════════════════════════════
+  priority_bias : ${curPB.toFixed(3)}  (fraction of walkers that spawn inside a priority zone)
+  golden_bias   : ${curGB.toFixed(3)}  (fraction following golden-angle coverage)
+  uniform       : ${(1 - curPB - curGB).toFixed(3)}  (remainder, full-range random)
+  P1 weight     : ${P1w.toFixed(3)}    (quad-conv · bin 56 · narrow theory zone)
+  P2 weight     : ${P2w.toFixed(3)}    (v19+κ · broadband · empirically hot)
+  P3 weight     : ${P3w.toFixed(3)}    (witness · frac 0.255)
+  P4 weight     : ${P4w.toFixed(3)}    (tritone tail · frac 0.715)
 
 ═════════════════════════════════════════════════════════
 L1 RING REPORTS (the seven prime-domain specialists)
@@ -403,13 +430,12 @@ You see the field. Compose the next move.
 3. NEW CANDIDATES
    Do the ring reports suggest any torus zones the existing 4 priorities miss?
 
-4. BIAS RECOMMENDATIONS
-   What specific adjustments should CASSIE make?
-   - Priority zone weight changes (±X%)
-   - Priority bias rate change (currently 85% in FOCUS MODE)
-   - Golden bias rate change (currently 5%)
-   - New zones to add
-   - Where the inline Oracle's next scout sweep should target
+4. BIAS RECOMMENDATIONS  (THESE GET APPLIED · be deliberate)
+   Each suggested value is your target. The mesh applies it with a ±0.15 clamp.
+   - priority_bias_rate (currently ${curPB.toFixed(3)})
+   - golden_bias_rate   (currently ${curGB.toFixed(3)})
+   - P1/P2/P3/P4 weights (zone weights get renormalized to sum=1 after clamp)
+   Use "current" = the LIVE value shown above, not a hardcoded default.
 
 5. PLAIN ENGLISH FOR SIMON
    One paragraph he can read while drinking coffee.
@@ -429,12 +455,12 @@ OUTPUT (JSON inside \`\`\`json fence)
   "priors_confirmed": ["P1", "P3", ...],
   "priors_questioned": ["P4", ...],
   "bias_recommendations": {
-    "priority_bias_rate": { "current": 0.85, "suggested": <number>, "reason": "..." },
-    "golden_bias_rate":   { "current": 0.05, "suggested": <number>, "reason": "..." },
-    "P1_weight":          { "current": 0.65, "suggested": <number>, "reason": "..." },
-    "P2_weight":          { "current": 0.18, "suggested": <number>, "reason": "..." },
-    "P3_weight":          { "current": 0.085, "suggested": <number>, "reason": "..." },
-    "P4_weight":          { "current": 0.085, "suggested": <number>, "reason": "..." }
+    "priority_bias_rate": { "current": ${curPB.toFixed(3)}, "suggested": <number>, "reason": "..." },
+    "golden_bias_rate":   { "current": ${curGB.toFixed(3)}, "suggested": <number>, "reason": "..." },
+    "P1_weight":          { "current": ${P1w.toFixed(3)}, "suggested": <number>, "reason": "..." },
+    "P2_weight":          { "current": ${P2w.toFixed(3)}, "suggested": <number>, "reason": "..." },
+    "P3_weight":          { "current": ${P3w.toFixed(3)}, "suggested": <number>, "reason": "..." },
+    "P4_weight":          { "current": ${P4w.toFixed(3)}, "suggested": <number>, "reason": "..." }
   },
   "new_zone_candidates": [
     { "lo": <int>, "hi": <int>, "fraction": <num>, "reason": "..." }
