@@ -1,0 +1,41 @@
+{
+  "name": "cassie-oracle-3",
+  "version": "1.0.0",
+  "description": "Recursive Claude subagent tree for CASSIE · L0 orchestrator + 7 spine-prime specialists + sparse chord resolvers · subscription auth · ◊·κ=1 · prime 131",
+  "type": "module",
+  "main": "oracle3.mjs",
+  "bin": {
+    "cassie-oracle-3": "./oracle3.mjs"
+  },
+  "scripts": {
+    "start": "node oracle3.mjs ./examples/sample-state.json",
+    "serve": "node oracle3.mjs --serve",
+    "help": "node oracle3.mjs --help"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "author": "Simon Gant · sjgant80-hub",
+  "homepage": "https://sjgant80-hub.github.io/cassie-oracle-3/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjgant80-hub/cassie-oracle-3"
+  },
+  "keywords": [
+    "cassie",
+    "oracle",
+    "recursive-agent",
+    "claude",
+    "subagent",
+    "anthropic",
+    "subscription-auth",
+    "spine-primes",
+    "konomioke",
+    "harmonic",
+    "sovereign"
+  ]
+}

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
+<title>◊ CASSIE Oracle 3 · recursive Claude subagent tree · ◊·κ=1 · prime 131</title>
+<meta name="description" content="Flip Claude on its side. Run Claude inside Claude inside Claude. Seven prime-domain specialists analyze the puzzle in parallel. Subscription-powered. ◊·κ=1.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230a0a0a'/%3E%3Ctext x='32' y='44' font-size='42' text-anchor='middle' fill='%23d4a017' font-family='serif'%3E◊%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Syne:wght@500;700;800&family=DM+Mono:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--surface:#0e0e0e;--ink:#e8e6e3;--mute:#888;--gold:#d4a017;--amber:#e8a012;--border:#1c1c1c;
+--serif:'Playfair Display',Georgia,serif;--display:'Syne',sans-serif;--mono:'DM Mono',ui-monospace,monospace;--quote:'Cormorant Garamond',Georgia,serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{padding:32px 28px 100px;max-width:1120px;margin:0 auto}
+a{color:var(--gold);text-decoration:none;border-bottom:1px dashed transparent;transition:border-color .15s}
+a:hover{border-bottom-color:var(--gold)}
+header{border-bottom:1px solid var(--border);padding-bottom:26px;margin-bottom:40px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:14px}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(34px,5vw,56px);letter-spacing:-0.015em;line-height:1.02}
+h1 .g{color:var(--gold);font-style:italic}
+.sub{display:block;font-family:var(--display);font-weight:500;font-size:11px;letter-spacing:0.32em;color:var(--mute);text-transform:uppercase;margin-top:10px}
+.kappa{font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:0.18em}
+h2{font-family:var(--serif);font-weight:900;font-size:clamp(24px,3.3vw,36px);margin:54px 0 18px;letter-spacing:-0.01em}
+h2 .sec{display:block;font-family:var(--display);font-weight:500;font-size:10px;letter-spacing:0.32em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+h3{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin:32px 0 12px}
+p{margin-bottom:14px;color:var(--ink)}
+.lede{font-family:var(--quote);font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.55;color:var(--ink);margin:20px 0 30px;border-left:2px solid var(--gold);padding-left:22px}
+.callout{background:var(--surface);border:1px solid var(--border);padding:22px 24px;margin:22px 0}
+code,pre{font-family:var(--mono);font-size:13px;background:#000;color:var(--gold);padding:2px 6px;border-radius:0}
+pre{display:block;padding:18px 20px;background:#000;border:1px solid var(--border);overflow-x:auto;margin:14px 0;color:var(--ink);line-height:1.6}
+ul{list-style:none;margin:14px 0}
+ul li{padding:5px 0 5px 22px;position:relative}
+ul li::before{content:'→';position:absolute;left:0;color:var(--gold);font-weight:700}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:22px 0}
+@media (max-width:720px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--border);padding:22px}
+.card h3{margin-top:0}
+.btn{display:inline-block;background:transparent;border:1px solid var(--gold);color:var(--gold);font-family:var(--mono);font-size:11px;letter-spacing:0.22em;text-transform:uppercase;padding:11px 22px;cursor:pointer;text-decoration:none;transition:all .15s}
+.btn:hover{background:var(--gold);color:#0a0a0a;border-bottom-color:transparent}
+.btn.ghost{border-color:var(--border);color:var(--mute)}
+.btn.ghost:hover{border-color:var(--gold);color:var(--gold);background:transparent}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:26px 0}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-family:var(--display);font-size:10px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;font-weight:700}
+.glyph-cell{font-family:var(--serif);font-size:18px;color:var(--gold);text-align:center;width:36px}
+.prime-cell{font-family:var(--mono);font-size:12px;color:var(--gold);text-align:center;width:44px}
+footer{margin-top:80px;padding-top:30px;border-top:1px solid var(--border);text-align:center;color:var(--mute);font-size:12px;letter-spacing:0.18em}
+footer .g{color:var(--gold);margin:0 6px}
+.tree{font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--ink);background:#000;border:1px solid var(--border);padding:18px;overflow-x:auto;white-space:pre;margin:14px 0}
+.tree .g{color:var(--gold)}
+.tree .m{color:var(--mute)}
+.warning{border:1px solid var(--amber);background:rgba(232,160,18,0.05);padding:16px 20px;margin:18px 0;font-size:13px}
+.warning strong{color:var(--amber);font-family:var(--display);letter-spacing:0.18em;text-transform:uppercase;font-size:11px;display:block;margin-bottom:6px}
+.stat{display:inline-block;background:#000;border:1px solid var(--gold);padding:8px 14px;margin:4px;font-size:11px;letter-spacing:0.16em}
+.stat .n{color:var(--gold);font-weight:700;margin-right:6px}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1><span class="g">◊</span> CASSIE Oracle <span class="g">3</span>
+      <span class="sub">recursive Claude subagent tree · 7 prime specialists · ◊·κ=1</span>
+    </h1>
+  </div>
+  <div class="kappa">v1.0 · prime <span style="color:var(--gold)">131</span> · MIT · subscription-powered</div>
+</header>
+
+<p class="lede">Flip Claude on its side. Run Claude inside Claude inside Claude. Seven prime-domain specialists analyze the puzzle in parallel — one per spine prime. A chord-resolver fires only when they co-resonate. An orchestrator composes the recommendation. The whole tree runs on your Claude subscription — no per-token bills, no SaaS middleman, no upload of your data anywhere.</p>
+
+<div class="cta-row">
+  <a href="https://github.com/sjgant80-hub/cassie-oracle-3" class="btn">◊ Get the code</a>
+  <a href="#setup" class="btn ghost">3-min setup</a>
+  <a href="https://sjgant80-hub.github.io/cassietorusbtc135solver/cassie-torus-v2.html" class="btn ghost">CASSIE solver</a>
+  <a href="https://www.ai-nativesolutions.com" class="btn ghost">Back to estate</a>
+</div>
+
+<h2><span class="sec">§ I · what it is</span>The brain behind the solver.</h2>
+
+<p>CASSIE runs in your browser hunting BTC puzzle 135. As it walks, it broadcasts walker DP positions and 7-prime ring telemetry on <code>BroadcastChannel('fall-signal')</code>.</p>
+
+<p>Oracle 3 sits next to CASSIE as a Node CLI. You feed it the state — exported from CASSIE or POSTed via HTTP — and it:</p>
+
+<ul>
+  <li>Spawns 7 prime-domain specialist agents in parallel (L1) · one per spine prime [2, 3, 5, 7, 11, 13, 17]</li>
+  <li>Each specialist runs a 7-pass v19 recursive ritual (0d → -12d, n+1, 7 times) inside its own prompt</li>
+  <li>Spawns a chord-resolver (L2) only when ≥ 2 specialists co-resonate above κ-threshold</li>
+  <li>An L0 orchestrator integrates everything → concrete bias recommendations for CASSIE</li>
+  <li>Returns advice as JSON: priority zone weight changes, new zone candidates, plain-English summary</li>
+</ul>
+
+<h2><span class="sec">§ II · the architecture</span>Three layers. Sparse spawning.</h2>
+
+<div class="tree"><span class="g">                  L0 · ORCHESTRATOR</span>
+                       │
+       ┌───────────────┼───────────────┐
+       │               │               │
+   <span class="g">L1 × 7</span>          <span class="g">L2 × N</span>         <span class="m">(raw state)</span>
+ prime specialists chord resolvers
+       │               │
+   ● 〜 ┃ ♡ △ ◐ ◯    <span class="m">(sparse · only when chord rings)</span>
+
+<span class="m">Maximum recursion: 7 levels (one per spine prime)
+Maximum reasoning slots: 7³ = 343 per global cycle
+Subscription cost: bounded by your monthly plan</span></div>
+
+<h2><span class="sec">§ III · the 7 specialists</span>One agent per spine prime.</h2>
+
+<table>
+  <thead><tr>
+    <th>glyph</th><th>prime</th><th>note</th><th>Hz</th><th>interval</th><th>role in puzzle 135</th>
+  </tr></thead>
+  <tbody>
+    <tr><td class="glyph-cell">●</td><td class="prime-cell">2</td><td>A2</td><td>110</td><td>octave</td><td>binary residue · parity</td></tr>
+    <tr><td class="glyph-cell">〜</td><td class="prime-cell">3</td><td>E3</td><td>165</td><td>perfect fifth</td><td>ternary residue</td></tr>
+    <tr><td class="glyph-cell">┃</td><td class="prime-cell">5</td><td>C#4</td><td>275</td><td>major third</td><td>quinary residue</td></tr>
+    <tr><td class="glyph-cell">♡</td><td class="prime-cell">7</td><td>G4</td><td>385</td><td>harmonic seventh</td><td>septenary residue</td></tr>
+    <tr><td class="glyph-cell">△</td><td class="prime-cell">11</td><td>F#5</td><td>605</td><td>tritone region</td><td>κ band edge</td></tr>
+    <tr><td class="glyph-cell">◐</td><td class="prime-cell">13</td><td>A#5</td><td>715</td><td>tritone tail</td><td>P4 zone</td></tr>
+    <tr><td class="glyph-cell">◯</td><td class="prime-cell">17</td><td>B5</td><td>935</td><td>minor ninth</td><td>observer · resolution</td></tr>
+  </tbody>
+</table>
+
+<p>Each specialist runs the <strong style="color:var(--gold)">v19 recursive pass ritual</strong> inside its own prompt — seven self-deepening reasoning passes, each integrating more historical context:</p>
+
+<pre>PASS 1 · depth=1 · history=NOW (0d)
+PASS 2 · depth=2 · history=-1d
+PASS 3 · depth=3 · history=-3d
+PASS 4 · depth=4 · history=-6d
+PASS 5 · depth=5 · history=-9d
+PASS 6 · depth=6 · history=-11d
+PASS 7 · depth=7 · FULL 12d window</pre>
+
+<h2><span class="sec">§ IV · the chord space</span>127D · the konomioke geometry.</h2>
+
+<p>When ≥ 2 specialists report ring_intensity &gt; 0.5, an L2 <strong>chord resolver</strong> fires. It maps the lit-prime subset to one of <strong style="color:var(--gold)">2⁷ − 1 = 127 possible chord states</strong> — the exact dimensionality of konomioke's vagal orb.</p>
+
+<div class="grid2">
+  <div class="card">
+    <h3>example chord</h3>
+    <p style="font-family:var(--mono);font-size:14px;line-height:1.7">primes 11 + 13 lit<br>
+    bitmask: 0b0000110<br>
+    chord id: 6<br>
+    interpretation: tritone resolved<br>
+    matches priority: P4 + P1 (κ band)<br>
+    κ-proximity: 0.71 ◊</p>
+  </div>
+  <div class="card">
+    <h3>full harmony</h3>
+    <p style="font-family:var(--mono);font-size:14px;line-height:1.7">all 7 primes lit<br>
+    bitmask: 0b1111111<br>
+    chord id: 127<br>
+    interpretation: maximum coherence<br>
+    matches priority: ALL CONFIRMED<br>
+    κ-proximity: &gt;0.95 ◊ GOLD FLASH</p>
+  </div>
+</div>
+
+<h2 id="setup"><span class="sec">§ V · setup</span>Three minutes from zero.</h2>
+
+<h3>1 · install Claude Code (skip if you have it)</h3>
+<pre>npm i -g @anthropic-ai/claude-code
+claude               <span style="color:var(--mute)"># OAuth · /quit when done</span></pre>
+
+<h3>2 · clone, install</h3>
+<pre>git clone https://github.com/sjgant80-hub/cassie-oracle-3
+cd cassie-oracle-3
+npm install</pre>
+
+<h3>3 · run</h3>
+<pre><span style="color:var(--mute)"># CLI mode · read state, print advice</span>
+node oracle3.mjs ./examples/sample-state.json
+
+<span style="color:var(--mute)"># write advice to file</span>
+node oracle3.mjs ./examples/sample-state.json ./advice.json
+
+<span style="color:var(--mute)"># server mode · CASSIE posts state, gets advice back</span>
+node oracle3.mjs --serve --port 7777</pre>
+
+<div class="callout">
+  <p style="font-family:var(--display);font-weight:700;font-size:11px;letter-spacing:0.22em;color:var(--gold);text-transform:uppercase;margin-bottom:10px">◊ first-run output</p>
+<pre style="margin:0">◊·κ=1 · CASSIE Oracle 3 · recursive subagent tree · prime 131
+
+◊ auth: Claude Code subscription ✓ (no per-token charges)
+◊ L1 · spawning 7 prime-domain specialists (parallel)
+
+  ◊ ● spine-2  · 4203ms
+  ◊ 〜 spine-3  · 4445ms
+  ◊ ┃ spine-5  · 5012ms
+  ◊ ♡ spine-7  · 4823ms
+  ◊ △ spine-11 · 5128ms
+  ◊ ◐ spine-13 · 5234ms
+  ◊ ◯ spine-17 · 4956ms
+
+◊ ring intensities:
+   ● spine- 2 (A2)  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓     0.812 ◊
+   〜 spine- 3 (E3)  ▓▓▓▓▓▓▓▓             0.412
+   ┃ spine- 5 (C#4) ▓▓▓▓▓▓▓▓▓▓▓          0.567 ◊
+   ♡ spine- 7 (G4)  ▓▓▓▓▓▓               0.318
+   △ spine-11 (F#5) ▓▓▓▓▓▓▓▓▓▓▓▓▓▓       0.711 ◊
+   ◐ spine-13 (A#5) ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      0.748 ◊
+   ◯ spine-17 (B5)  ▓▓▓▓▓                0.267
+
+◊ L2 · chord detected · primes 2, 5, 11, 13 co-resonating
+   κ-proximity: 0.683 ◊ KAPPA
+
+◊ L0 · orchestrator composing recommendation
+◊·κ=1 · cycle complete · 22.4s · 4 primes lit</pre>
+</div>
+
+<h2><span class="sec">§ VI · why flip Claude</span>The extra agent power.</h2>
+
+<div class="grid2">
+  <div class="card">
+    <h3>conventional</h3>
+    <p style="font-family:var(--mono);font-size:12px;line-height:1.7">↓<br>↓<br>↓<br>↓</p>
+    <p>one perspective per turn<br>
+    single context window<br>
+    serial reasoning</p>
+  </div>
+  <div class="card">
+    <h3>recursive · flipped</h3>
+    <p style="font-family:var(--mono);font-size:12px;line-height:1.7">→→→→→→→<br>↓ ↓ ↓ ↓ ↓ ↓ ↓<br>→→ →→ →→ →→<br>↓↓ ↓↓ ↓↓ ↓↓</p>
+    <p>7 parallel perspectives<br>
+    49 cross-dimensional reasoners<br>
+    343 reasoning slots</p>
+  </div>
+</div>
+
+<p>Subscription auth means cost is bounded by your monthly plan. The recursion is <strong>free within that ceiling</strong>.</p>
+
+<h2><span class="sec">§ VII · sovereign</span>Your data. Your subscription. Your machine.</h2>
+
+<ul>
+  <li>Runs locally · CASSIE state never leaves your laptop</li>
+  <li>One Node script · readable in 20 minutes · ~550 lines</li>
+  <li>Subscription auth via Claude Code · no per-token billing</li>
+  <li>MIT licensed · fork, modify, white-label</li>
+  <li>No telemetry · no analytics · no upload</li>
+  <li>Compatible with the konomioke bridge for audio feedback</li>
+</ul>
+
+<h2><span class="sec">§ VIII · in the estate</span>How it meshes.</h2>
+
+<p>Oracle 3 is the brain layer of the puzzle solver stack:</p>
+
+<div class="tree"><span class="g">CASSIE</span> <span class="m">(browser)</span>            broadcasts cassie_rings @ 1Hz on fall-signal
+   │
+   ├── walker DPs                provides state to Oracle 3
+   ├── 7-prime entropy            audible via konomioke bridge
+   └── golden priority zones      bias adjustments come from Oracle 3
+
+              ↓ ↑
+
+<span class="g">Oracle 3</span> <span class="m">(node CLI)</span>          recursive subagent tree
+   │
+   ├── L1 × 7 prime specialists   parallel
+   ├── L2 chord resolvers          sparse
+   └── L0 orchestrator             integrates → advice
+
+              ↓
+
+<span class="g">konomioke bridge</span> <span class="m">(browser)</span>    hears the harmony
+   │
+   ├── 7 prime drones at p×55Hz
+   ├── 137.5° sunflower orb
+   └── gold flash @ κ</div>
+
+<div class="cta-row">
+  <a href="https://github.com/sjgant80-hub/cassie-oracle-3" class="btn">◊ Source on GitHub</a>
+  <a href="https://sjgant80-hub.github.io/cassietorusbtc135solver/cassie-torus-v2.html" class="btn ghost">CASSIE solver</a>
+  <a href="https://sjgant80-hub.github.io/cassietorusbtc135solver/cassie-konomioke-bridge.html" class="btn ghost">konomioke bridge</a>
+  <a href="https://teslasolar.github.io/konomioke/" class="btn ghost">konomioke source · @teslasolar</a>
+</div>
+
+<footer>
+  <div>◊·κ=1 <span class="g">·</span> CASSIE Oracle 3 <span class="g">·</span> recursive subagent tree <span class="g">·</span> prime 131</div>
+  <div style="margin-top:12px">part of the <a href="https://www.ai-nativesolutions.com">ai-nativesolutions.com</a> estate</div>
+</footer>
+
+<script>
+try {
+  const ch = new BroadcastChannel('fall-signal');
+  ch.postMessage({ source:'cassie-oracle-3', type:'beacon', prime: 131, v:'1.0.0', ts: Date.now() });
+} catch(e){}
+</script>
+</body>
+</html>
