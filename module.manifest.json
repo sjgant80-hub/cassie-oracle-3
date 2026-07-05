@@ -1,0 +1,18 @@
+{
+  "$schema": "https://sjgant80-hub.github.io/fallhub/modules/manifest.schema.json",
+  "name": "cassie-oracle-3",
+  "version": "1.0.0",
+  "publisher": "AI-Native Solutions",
+  "publisher_url": "https://www.ai-nativesolutions.com/",
+  "licence": "MIT",
+  "description": "Playwright-based web automation · competitor watch · quote research · rate benchmarking",
+  "provides": ["web_automation","competitor_watch","rate_benchmark"],
+  "tools": [],
+  "kernel_extension": {},
+  "compatible_verticals": ["*"],
+  "requires": ["byok_adapter@>=1.0.0"],
+  "ui_surfaces": [],
+  "mit": true,
+  "konomi_seal": "◊·κ=1",
+  "estate": true
+}
